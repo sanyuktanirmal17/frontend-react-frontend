@@ -1,3 +1,8 @@
+/**
+ * 
+ */
+
+
 import React from 'react'
 import {Avatar, Button, Grid, Paper, TextField, Typography, Link} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -11,18 +16,14 @@ const Login =()=>{
     <Grid>
         <Paper elevation={20} style={paperStyle}>
             <Grid align='center'>
+            
             <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
             <h2>Sign In</h2>
             </Grid>
             <TextField label='Username' placeholder='Enter Username' fullwidth required />
             <TextField label='Password' placeholder='Enter Password' type='password' fullwidth required />
             <FormControlLabel
-        control={
-          <Checkbox
-            name="checkedB"
-            color="primary"
-          />
-        }
+        control={<Checkbox name="checkedB" color="primary" />}
         label="Remember me"
       />
       <Button type='submit' color='primary' variant="contained" style={btstyle} fullwidth>Sign In </Button>
