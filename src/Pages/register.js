@@ -3,6 +3,8 @@ import React from 'react'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import {Link} from 'react-router-dom'
+
 const Register = () => {
     const paperStyle = { padding: '30px 20px', width: 300, margin: "20px auto" }
     const headerStyle = { margin: 0 }
@@ -30,7 +32,11 @@ const Register = () => {
                         label="I accept the terms and condition "
                     />
                     <Button type='submit' variant='contained' color='primary'>Sign Up</Button>
-
+                    <Typography>Already have an account?
+                            <Link to = '/login'>
+                            Login
+                            </Link>
+                        </Typography>
                 </form>
             </Paper>
         </Grid>

@@ -1,10 +1,11 @@
 
 
 import React from 'react'
-import {Avatar, Button, Grid, Paper, TextField, Typography, Link} from '@material-ui/core'
+import {Avatar, Button, Grid, Paper, TextField, Typography} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import {Link} from 'react-router-dom'
 const Login =()=>{
     const paperStyle={padding :20, height:'70vh', width:300, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1b66e4'}
@@ -12,6 +13,7 @@ const Login =()=>{
     return(
     <Grid>
         <Paper elevation={20} style={paperStyle}>
+
             <Grid align='center'>
             
             <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
@@ -30,10 +32,16 @@ const Login =()=>{
         </Link>
      </Typography>
              <Typography > Do you have an account 
-                  <Link href="#" >
+                  {/* <Link href="#" > */}
+                  <Link to = '/register'>
                    Sign Up
                  </Link>
           </Typography>
+          {/* <Typography>Create a new account
+                            <Link to = '/login'>
+                            Sign Up
+                            </Link>
+                        </Typography> */}
         </Paper>
     </Grid>
     )
