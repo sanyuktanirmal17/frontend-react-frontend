@@ -1,24 +1,79 @@
-.paperStyle{
-    padding: 30px 20px ;
-    width:300px ;
-    margin: 30px auto ;
-    // background-color: rgb(21, 21, 146) !important ;
-    // height: 300px;
-}
 
-.buttonMargin {
-    margin-top :10px !important;
-    background-color: rgb(21, 21, 146) !important;
-    border : solid 1px black !important ;
-}
-.avatarStyle{
-    background-color: rgb(21, 21, 146) !important;
-}
-.header {
-    margin-top :5px ;
-    margin:5px ;
-    // background-color: rgb(15, 145, 123);
-}
-.errorMessage {
-    color: red;
+
+
+.formStyle {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .register-paper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: left;
+      align-items: flex-start;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid #dadce0;
+      background-color: #ffffff;
+    }
+    .login-paper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: 1px solid #dadce0;
+        background-color: #ffffff;
+        text-align: center;
+      }
+    //   .register-form-button:hover{
+    //     background-color: #1a73e8;
+    //     box-shadow: none;
+    // }
+    
+    .avatarStyle{
+        background-color: rgb(21, 21, 146) !important;
+        align-items: center;
+    }
+
+      login-form-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 20px;
+    }
+
+    .login-form {
+        margin: 20px;
+    }
+    .login-form-input {
+        min-height: 90px;
+    }
+    .forgot-password-link {
+        display: flex;
+    }
+    }
+    .header {
+        font-weight: bold;
+        color: blue;
+        padding: 5;
+      }
+
+     /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .register-container{
+        min-height: 500px !important;
+        width: 450px;
+        padding: 48px 40px 36px;
+    }
+    .login-container{
+        min-height: 400px !important;
+        width: 350px;
+    }
+   
 }
