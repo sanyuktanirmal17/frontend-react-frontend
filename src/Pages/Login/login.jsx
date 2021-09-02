@@ -19,10 +19,7 @@ import './login.scss'
 
 
 const Login =()=>{
-    // const paperStyle={padding :20, height:'70vh', width:300, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1b66e4'}
-    // const btstyle={margin:'8px 0'}
-    const initialValues = {
+ const initialValues = {
         emailId:'',
         password:''   
     }
@@ -45,9 +42,10 @@ const Login =()=>{
             <Grid>
               <Paper elevation={10} className="paperStyle">
                 <Grid align="center">
-                  <Avatar style={avatarStyle}>
+                  <Avatar className='avatarStyle'>
                     <LockOutlinedIcon />
                   </Avatar>
+                  <h2 className="header">Fundoo Notes Application</h2>
                   <h2 className="header">sign In</h2>
                 </Grid>
                 <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
@@ -56,12 +54,14 @@ const Login =()=>{
                         <Field as={TextField} 
                             fullWidth label="Email ID" 
                             name = "emailId" 
+                            placeholder="Please enter email  "
                             required
                             helperText={<ErrorMessage name = "emailId">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField} 
                             fullWidth label="Password" 
                             type="password" 
                             name = "password"  
+                            placeholder="Enter password"
                             required
                             helperText={<ErrorMessage name = "password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
                         

@@ -2,16 +2,18 @@
     padding: 30px 20px ;
     width:300px ;
     margin: 30px auto ;
-    background-color: rgb(15, 145, 123);
+    // background-color: rgb(21, 21, 146) !important ;
     // height: 300px;
 }
 
 .buttonMargin {
-    margin-top :10px ;
-    color:grey; 
-    border : solid 1px black ;
+    margin-top :10px !important;
+    background-color: rgb(21, 21, 146) !important;
+    border : solid 1px black !important ;
 }
-
+.avatarStyle{
+    background-color: rgb(21, 21, 146) !important;
+}
 .header {
     margin-top :5px ;
     margin:5px ;

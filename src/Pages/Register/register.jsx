@@ -18,10 +18,6 @@ import './register.scss'
 */
 
 const Register = () => {
-    // const paperStyle = { padding: '30px 20px', width: 300, margin: "20px auto" }
-    // const headerStyle = { margin: 0 }
-    const avatarStyle = { backgroundColor: '#1b66e4' }
-    // const buttonStyle = { margin: '40px 100px', backgroundColor: 'rgb(17, 127, 237)', color: 'white' }
     const initialValues = {
         firstName:'',
         lastName:'',
@@ -36,7 +32,7 @@ const Register = () => {
         .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Required"),
         emailId: Yup.string().email("Enter a valid email id").required("Required"),
         password: Yup.string().min(8,"Password must be of atleast 8 characters"),
-        confirmPassword: Yup.string().min(8,"Password must be of atleast 8 characters")
+        confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Password doesn't matched").required("Required" )   
     })
     
     const onSubmit=(values, props)=>{
@@ -48,68 +44,123 @@ const Register = () => {
     
         console.log(props)
     }
-    
+
     return (
-        <Grid>
-            <Paper elevation={20} className="paperStyle">
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}>
-                        <AddCircleIcon />
-                    </Avatar>
-                    <h2  className="header">Sign Up</h2>
-                    <Typography variant='caption' >please fill form to create an account !</Typography>
+        <Grid className="formStyle">
+            <Paper className="register-container paperStyle">
+                <div className="register-form">
+                    <h3 className="header">
+                        <span className="headerStyleone">Fundoo Notes App</span>
+                        <span className="headerStyle"> <h5 >Please fill form to create an account !</h5></span>
+                    </h3>
+                    <Grid>
+                       
+                    </Grid>
+                    <Formik
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
+                    >
+                        {(props) => (
+                            <Form className="register-form-inputs" data-testid="form">
+                                <Grid container spacing={5} className="register-form-element">
+                                    <Grid item xs={16} sm={6}>
+                                        <Field
+                                            className="register-form-inputs"
+                                            as={TextField}
+                                            label="First Name"
+                                            name="firstName"
+                                            placeholder="Enter First Name"
+                                            variant="outlined"
+                                            fullWidth
+                                            required
+                                            helperText={<ErrorMessage name='firstName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={16} sm={6}>
+                                        <Field
+                                            className="register-form-inputs"
+                                            as={TextField}
+                                            label="Last Name"
+                                            name="lastName"
+                                            placeholder="Enter Last Name"
+                                            variant="outlined"
+                                            fullWidth
+                                            required
+                                            helperText={<ErrorMessage name='lastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                        />
+                                    </Grid>
+                                </Grid>
+                                <Grid container spacing={1} className="register-form-element">
+                                    <Field
+                                        className="register-form-inputs"
+                                        spacing={3}
+                                        as={TextField}
+                                        label="Email Address"
+                                        name="email"
+                                        placeholder="Enter Email"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        helperText={<ErrorMessage name='email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                    />
+                                </Grid>
+                                <Grid container spacing={1} className="register-form-element">
+                                    <Grid item xs={12} sm={6}>
+                                        <Field
+                                            className="register-form-inputs"
+                                            as={TextField}
+                                            label="Password"
+                                            name="password"
+                                            placeholder="Enter password"
+                                            variant="outlined"
+                                            type="password"
+                                            fullWidth
+                                            required
+                                            helperText={<ErrorMessage name='password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <Field
+                                            className="register-form-inputs"
+                                            as={TextField}
+                                            label="Confirm Password"
+                                            name="confirmPassword"
+                                            placeholder="Enter password"
+                                            variant="outlined"
+                                            type="password"
+                                            fullWidth
+                                            required
+                                            helperText={<ErrorMessage name='confirmPassword'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                        />
+                                    </Grid>
+                                </Grid>
+                                <Grid container spacing={1} className="register-form-element submit-button">
+                                    <Button
+                                        type="submit"
+                                        data-testid="submitButton"
+                                        variant="contained"
+                                        disabled={props.isSubmitting}
+                                        className="register-form-button"
+                                        fullWidth
+                                    >
+                                        {props.isSubmitting ? "Loading" : "Register"}
+                                    </Button>
+                                </Grid>
+                            </Form>
+                        )}
+                    </Formik>
+                    <Typography className="signInlink">
+                        <Link to="/login">Sign in instead</Link>
+                    </Typography>
+                </div>
+                <div className="register-avatar">
+                <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"></img>
+                </div>
+            </Paper>
+        </Grid >
+    );
+};
 
-                </Grid>
-
-                <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
-                {(props)=>(
-                    <Form>
-                        <Field as={TextField} 
-                            fullWidth label="First Name" 
-                            name = "firstName" 
-                            required
-                            helperText={<ErrorMessage name = "firstName">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-                        <Field as={TextField} 
-                            fullWidth label="Last Name" 
-                            name = "lastName"
-                            required
-                            helperText={<ErrorMessage name = "lastName">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-                        <Field as={TextField} 
-                            fullWidth label="Email ID" 
-                            name = "emailId" 
-                            required
-                            helperText={<ErrorMessage name = "emailId">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-                        <Field as={TextField} 
-                            fullWidth label="Password" 
-                            type="password" 
-                            name = "password"  
-                            required
-                            helperText={<ErrorMessage name = "password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-                            
-                            <Field as={TextField} 
-                            fullWidth label="Confirm Password" 
-                            type="password" 
-                            name = "confirmPassword"  
-                            required
-                            helperText={<ErrorMessage name = "Confirm Password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-                            
-
-                        <Button className='buttonMargin' 
-                            type="submit" variant="contained" 
-                            disabled = {props.isSubmitting}>
-                            {props.isSubmitting?"Loading":"Sign Up"}</Button>
-                            <Typography>Already have an account?
-                            <Link to = '/login'>
-                            Login
-                            </Link>
-                        </Typography>
-
-                    </Form>
-                )}
-            </Formik>
-        </Paper>
-    </Grid>
-
-    )
-}
+    
 export default Register;
