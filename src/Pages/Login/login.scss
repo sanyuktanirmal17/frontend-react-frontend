@@ -1,5 +1,5 @@
 
-
+@import "./variable";
 
 .formStyle {
     height: 100vh;
@@ -33,10 +33,31 @@
     //     box-shadow: none;
     // }
     
-    .avatarStyle{
-        background-color: rgb(21, 21, 146) !important;
-        align-items: center;
+    .fundoo-body {
+        padding: 0;
     }
+    .fun1 {
+        color: rgb(66, 133, 244);
+    }
+    .fun2 {
+        color: rgb(234, 67, 53);
+    }
+    .fun3 {
+        color: rgb(251, 188, 5);
+    }
+    .fun4 {
+        color: rgb(66, 133, 244);
+    }
+    .fun5 {
+        color: rgb(52, 168, 83);
+    }
+    .fun6 {
+        color: rgb(234, 67, 53);
+    }
+    // .avatarStyle{
+    //     background-color: rgb(21, 21, 146) !important;
+    //     align-items: center;
+    // }
 
       login-form-container {
         display: flex;
@@ -51,17 +72,60 @@
     .login-form-input {
         min-height: 90px;
     }
+    .register-avatar{
+        width: 250px;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        top: 20%;
+        left: 4%;
+    }
+    .fa-user-astronaut {
+        text-align: center;
+        font-size: 150px;
+        color: #4285f4;
+    }
+    .register-form-inputs{
+        margin: 20px 0 0 0;
+    }
+    .register-form-element {
+        min-height: 90px;
+        .MuiInputLabel-formControl {
+            top: -7px;
+        }
+    }
+    .register-form-inputs input{
+        font-size: 14px;
+        height: 30px;
+        padding: 6px 8px;
+    }
+    .register-form-button {
+        background-color: #1a73e8;
+        color: #ffffff;
+        margin: 30px 0;
+        width: 50%;
+        height: 50px;
+        margin: 20px auto;
+    }
+    .register-form-button:hover{
+        background-color: #1a73e8;
+        box-shadow: none;
+    }
+    .submit-button{
+        text-align: center;
+        width: 100%;
+    }
+    .sign-in-link{
+        margin: 5px 0;
+    }
     .forgot-password-link {
         display: flex;
     }
-    }
-    .header {
-        font-weight: bold;
-        color: blue;
-        padding: 5;
-      }
-
-     /* Extra small devices (phones, 600px and down) */
+  }
+  .menu-selected {
+    background-color: #feefc3 !important;
+}
+  /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -75,5 +139,39 @@
         min-height: 400px !important;
         width: 350px;
     }
-   
+    .forgot-password-container{
+        min-height: 400px !important;
+        width: 350px;
+        text-align: center;
+        padding: 50px !important;
+    }
+    .register-paper, .login-paper {
+        position: relative;
+        bottom: 5%;
+    }
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .register-container{
+        width: 750px;
+        min-height: 500px !important;
+        padding: 48px 40px 36px !important;
+    }
+    .login-container{
+        width: 600px;
+        min-height: 400px !important;
+    }
+    .forgot-password-container{
+        width: 600px;
+        min-height: 400px !important;
+        text-align: center;
+        padding: 50px !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

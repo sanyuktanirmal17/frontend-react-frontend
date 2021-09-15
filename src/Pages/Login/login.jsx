@@ -91,11 +91,21 @@ return (
     <Grid className="formStyle">
       <Paper className="login-container login-paper">
         <div  align="center" className="login-form-container">
-        <Avatar className='avatarStyle'>
+        {/* <Avatar className='avatarStyle'>
                   <LockOutlinedIcon />
-                </Avatar>
+                </Avatar> */}
           <h3 className="header">
-            <span className="fun1">Fundoo Notes App</span> 
+            <span className="fun1">F</span>
+            <span className="fun2">u</span> 
+            <span className="fun3">n</span> 
+            <span className="fun4">d</span> 
+            <span className="fun5">o</span> 
+            <span className="fun6">o</span> 
+            <span className="fun1">N</span>
+            <span className="fun2">o</span> 
+            <span className="fun3">t</span> 
+            <span className="fun4">e</span> 
+            <span className="fun5">s</span>
           </h3>
           <Grid>
             <h5>Sign in</h5>
@@ -110,6 +120,7 @@ return (
                 <Field
                   as={TextField}
                   className="login-form-input"
+                  data-testid="email"
                   label="Email Address"
                   name="email"
                   placeholder="Enter Email"
@@ -132,9 +143,10 @@ return (
                     <ErrorMessage name='password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>
                   }
                 />
-                
+                 <Link className="forgot-password-link" data-testid="link" to="/forgotPassword">Forgot password?</Link>
                 <Button
                   type="submit"
+                  data-testid="button"
                   color="primary"
                   variant="contained"
                   disabled={props.isSubmitting}
@@ -142,14 +154,12 @@ return (
                   fullWidth>
                   {props.isSubmitting ? "Loading" : "Login"}
                 </Button>
-                <Link className="forgot-password-link" data-testid="link" to="/forgotPassword">Forgot password?</Link>
-                <Typography align="left">
-            <Link data-testid="link" to="/register">Sign Up</Link>
-          </Typography>
-              </Form>
-            )}
-          </Formik>
-         
+                </Form>
+                 )}
+                 </Formik>
+                 <Typography align="center">
+                  <Link data-testid="link" to="/register">Create Account</Link>
+               </Typography>
         </div>
       </Paper>
     </Grid>
