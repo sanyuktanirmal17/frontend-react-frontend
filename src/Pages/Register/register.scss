@@ -58,6 +58,37 @@
         left: 4%;
     }
 
+    .register-form-element {
+        min-height: 90px;
+        .MuiInputLabel-formControl {
+            top: -7px;
+        }
+    }
+    .register-form-inputs input{
+        font-size: 14px;
+        height: 30px;
+        padding: 6px 8px;
+    }
+    .register-form-button {
+        background-color: #1a73e8;
+        color: #ffffff;
+        margin: 30px 0;
+        width: 50%;
+        height: 50px;
+        margin: 20px auto;
+    }
+    .register-form-button:hover{
+        background-color: #1a73e8;
+        box-shadow: none;
+    }
+    .submit-button{
+        text-align: center;
+        width: 100%;
+    }
+ 
+    .register-form-inputs{
+        margin: 20px 0 0 0;
+    }
     // .register-form-button:hover{
     //     background-color:rgb(52, 168, 83);
     //     box-shadow: none;

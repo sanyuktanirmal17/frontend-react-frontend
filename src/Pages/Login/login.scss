@@ -1,5 +1,4 @@
 
-@import "./variable";
 
 .formStyle {
     height: 100vh;
@@ -72,49 +71,21 @@
     .login-form-input {
         min-height: 90px;
     }
-    .register-avatar{
-        width: 250px;
-        height: 100%;
-        text-align: center;
-        position: relative;
-        top: 20%;
-        left: 4%;
-    }
+    // .register-avatar{
+    //     width: 250px;
+    //     height: 100%;
+    //     text-align: center;
+    //     position: relative;
+    //     top: 20%;
+    //     left: 4%;
+    // }
     .fa-user-astronaut {
         text-align: center;
         font-size: 150px;
         color: #4285f4;
     }
-    .register-form-inputs{
-        margin: 20px 0 0 0;
-    }
-    .register-form-element {
-        min-height: 90px;
-        .MuiInputLabel-formControl {
-            top: -7px;
-        }
-    }
-    .register-form-inputs input{
-        font-size: 14px;
-        height: 30px;
-        padding: 6px 8px;
-    }
-    .register-form-button {
-        background-color: #1a73e8;
-        color: #ffffff;
-        margin: 30px 0;
-        width: 50%;
-        height: 50px;
-        margin: 20px auto;
-    }
-    .register-form-button:hover{
-        background-color: #1a73e8;
-        box-shadow: none;
-    }
-    .submit-button{
-        text-align: center;
-        width: 100%;
-    }
+    
+    
     .sign-in-link{
         margin: 5px 0;
     }

@@ -31,7 +31,7 @@ const Register = () => {
         lastName: Yup.string().min(3, "Last Name must have alteast three alphabets")
         .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Required"),
         emailId: Yup.string().email("Enter a valid email id").required("Required"),
-        password: Yup.string().min(8,"Password must be of atleast 8 characters"),
+        password: Yup.string().min(8,"Password must be of atleast 8 characters").required("Required"),
         confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Password doesn't matched").required("Required" )   
     })
     

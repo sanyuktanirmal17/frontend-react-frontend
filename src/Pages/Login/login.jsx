@@ -26,7 +26,7 @@ const Login =()=>{
 
     const validationSchema = Yup.object().shape({
         emailId: Yup.string().email("Enter a valid email id").required("Required"),
-        password: Yup.string().min(8,"Password must be of atleast 8 characters")
+        password: Yup.string().min(8,"Password must be of atleast 8 characters").required('Required')
     })
 
     const onSubmit=(values, props)=>{
@@ -94,7 +94,7 @@ return (
         {/* <Avatar className='avatarStyle'>
                   <LockOutlinedIcon />
                 </Avatar> */}
-          <h3 className="header">
+          <h2 className="header">
             <span className="fun1">F</span>
             <span className="fun2">u</span> 
             <span className="fun3">n</span> 
@@ -106,9 +106,9 @@ return (
             <span className="fun3">t</span> 
             <span className="fun4">e</span> 
             <span className="fun5">s</span>
-          </h3>
+          </h2>
           <Grid>
-            <h5>Sign in</h5>
+            <h3>Sign in</h3>
           </Grid>
           <Formik
             initialValues={initialValues}
