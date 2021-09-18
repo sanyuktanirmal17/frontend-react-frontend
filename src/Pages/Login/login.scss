@@ -1,4 +1,4 @@
-
+@import '../../style/variable.scss';
 
 .formStyle {
     height: 100vh;
@@ -32,9 +32,9 @@
     //     box-shadow: none;
     // }
     
-    .fundoo-body {
-        padding: 0;
-    }
+    // .fundoo-body {
+    //     padding: 0;
+    // }
     .fun1 {
         color: rgb(66, 133, 244);
     }
@@ -93,9 +93,9 @@
         display: flex;
     }
   }
-  .menu-selected {
-    background-color: #feefc3 !important;
-}
+//   .menu-selected {
+//     background-color: #feefc3 !important;
+// }
   /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
 

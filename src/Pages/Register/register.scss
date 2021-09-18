@@ -1,3 +1,5 @@
+@import '../../style/variable.scss';
+
 .formStyle {
     height: 100vh;
     display: flex;
@@ -23,9 +25,9 @@
         text-align: left ;
     }
     
-    .fundoo-body {
-        padding: 0;
-    }
+    // .fundoo-body {
+    //     padding: 0;
+    // }
     .fun1 {
         color: rgb(66, 133, 244);
     }

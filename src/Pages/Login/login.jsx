@@ -8,93 +8,67 @@
 
 import React from 'react'
 import {Avatar, Button, Grid, Paper, TextField, Typography} from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {Link} from 'react-router-dom'
 import * as Yup from 'yup'
 import {Formik,  Form, Field, ErrorMessage} from 'formik'
 import './login.scss'
+ import { useHistory } from 'react-router-dom'
+import { User } from '../../service/user'
+const user = new User()
+
 /**
 * @description creating Login form
 */
 
 
 const Login =()=>{
+ const history = useHistory();
  const initialValues = {
-        emailId:'',
+        email:'',
         password:''   
     }
 
+    const handleRegister=()=>{
+      history.push('/register');
+  };
+
     const validationSchema = Yup.object().shape({
-        emailId: Yup.string().email("Enter a valid email id").required("Required"),
+        email: Yup.string().email("Enter a valid email id").required("Required"),
         password: Yup.string().min(8,"Password must be of atleast 8 characters").required('Required')
     })
 
     const onSubmit=(values, props)=>{
-        console.log(values)
-        setTimeout(()=>{
-            props.resetForm()
-            props.setSubmitting(false)
-        },2000)
+      console.log(values)
+       const loginDetails = {
+         email: values.email,
+         password: values.password
+       }
 
-        console.log(props)
+       user.userLogin(loginDetails).then((res) => {
+        // setOpen(true);
+        localStorage.setItem('token', res.data.data)
+        console.log(res.data.message)
+        alert('You have been successfully logged in!!')
+          history.push('./dashboard');
+      }).catch(error => {
+        console.log(error.message)
+      })
+      // eslint-disable-next-line
+    //         props.resetForm()
+            // props.setSubmitting(false)
     }
-//           return (
-//             <Grid>
-//               <Paper elevation={10} className="paperStyle">
-//                 <Grid align="center">
-//                   <Avatar className='avatarStyle'>
-//                     <LockOutlinedIcon />
-//                   </Avatar>
-//                   <h2 className="header">Fundoo Notes Application</h2>
-//                   <h2 className="header">sign In</h2>
-//                 </Grid>
-//                 <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
-//                 {(props)=>(
-//                     <Form>
-//                         <Field as={TextField} 
-//                             fullWidth label="Email ID" 
-//                             name = "emailId" 
-//                             placeholder="Please enter email  "
-//                             required
-//                             helperText={<ErrorMessage name = "emailId">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-//                         <Field as={TextField} 
-//                             fullWidth label="Password" 
-//                             type="password" 
-//                             name = "password"  
-//                             placeholder="Enter password"
-//                             required
-//                             helperText={<ErrorMessage name = "password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>}/>
-                        
-//                           <Button type="submit" className="buttonMargin" variant="contained"  disabled={props.isSubmitting}
-//                            fullWidth> {props.isSubmitting?"Loading":"Sign in"}</Button>
-//                          <Typography >
-//                             <Link href="#" >
-//                             Forgot  Password ?
-//                            </Link>
-//                           </Typography>
-//                            <Typography>Create a new account? 
-//                             <Link to = '/register'>
-//                                 Signup
-//                             </Link>
-//                         </Typography>  
-//                     </Form>
-//                    )}
-//              </Formik>
-//         </Paper>
-//     </Grid>
-//  )}
 
-
+    const handleLogin=()=>{
+      history.push('/login');
+  };
 
 return (
   <div>
     <Grid className="formStyle">
       <Paper className="login-container login-paper">
         <div  align="center" className="login-form-container">
-        {/* <Avatar className='avatarStyle'>
-                  <LockOutlinedIcon />
-                </Avatar> */}
-          <h2 className="header">
+          <h1 className="header">
             <span className="fun1">F</span>
             <span className="fun2">u</span> 
             <span className="fun3">n</span> 
@@ -106,9 +80,9 @@ return (
             <span className="fun3">t</span> 
             <span className="fun4">e</span> 
             <span className="fun5">s</span>
-          </h2>
+          </h1>
           <Grid>
-            <h3>Sign in</h3>
+            <h2>Sign in</h2>
           </Grid>
           <Formik
             initialValues={initialValues}
@@ -116,29 +90,29 @@ return (
             validationSchema={validationSchema}
           >
             {(props) => (
-              <Form data-testid="form" className="login-form">
+              <Form  className="login-form">
                 <Field
                   as={TextField}
                   className="login-form-input"
-                  data-testid="email"
+                  // data-testid="email"
                   label="Email Address"
                   name="email"
                   placeholder="Enter Email"
                   variant="outlined"
                   fullWidth
-                  required
                   helperText={<ErrorMessage name='email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                 />
                 <Field
                   as={TextField}
-                  data-testid="password"
+                  className="login-form-input"
+                  // data-testid="password"
                   label="Password"
                   name="password"
                   placeholder="Enter password"
                   variant="outlined"
                   type="password"
                   fullWidth
-                  required
+                  
                   helperText={
                     <ErrorMessage name='password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>
                   }
@@ -149,7 +123,7 @@ return (
                   data-testid="button"
                   color="primary"
                   variant="contained"
-                  disabled={props.isSubmitting}
+                   disabled={props.isSubmitting}
                   className="register-form-button"
                   fullWidth>
                   {props.isSubmitting ? "Loading" : "Login"}
@@ -158,14 +132,17 @@ return (
                  )}
                  </Formik>
                  <Typography align="center">
-                  <Link data-testid="link" to="/register">Create Account</Link>
+                 Create Account
+                  <Link data-testid="link" to="/register" onClick={handleRegister}>Register</Link>
+
+
                </Typography>
         </div>
       </Paper>
     </Grid>
-   
   </div>
-);
+ );
 };
+
 
 export  default Login;

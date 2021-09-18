@@ -11,46 +11,67 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import {Link} from 'react-router-dom'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
-import './register.scss'
+import './register.scss';
+import { User } from '../../service/user';
+import { useHistory } from 'react-router-dom'; 
+const user = new User()
 
 /**
 * @description creating registartion form
 */
 
 const Register = () => {
+    let history = useHistory();
     const initialValues = {
         firstName:'',
         lastName:'',
-        emailId:'',
+        email:'',
         password:'',
-        conformPassword:''
+        confirmPassword:''
     }
     const validationSchema = Yup.object().shape({
         firstName: Yup.string().min(3, "First Name must have alteast three alphabets")
         .matches(/^[a-zA-Z]{3,}$/, "First Name must contain alphabets only").required("Required"),
         lastName: Yup.string().min(3, "Last Name must have alteast three alphabets")
         .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Required"),
-        emailId: Yup.string().email("Enter a valid email id").required("Required"),
+        // email: Yup.string().email("Enter a valid email id").required("Required"),
+        email:Yup.string().email('please enter valid email').required("Required"),
         password: Yup.string().min(8,"Password must be of atleast 8 characters").required("Required"),
         confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Password doesn't matched").required("Required" )   
     })
+
+    // const handleLogin=()=>{
+    //     history.push('/login');
+    // };
     
     const onSubmit=(values, props)=>{
+        if(values && !values.firstName && !values.lastName) return 
         console.log(values)
-        setTimeout(()=>{
-            props.resetForm()
-            props.setSubmitting(false)
-        },2000)
-    
-        console.log(props)
-    }
+        const userCredentials = {
+        firstName: values.firstName,
+        lastName:values.lastName,
+        email: values.email,
+        password:values.password,
+        confirmPassword:values.confirmPassword
+        }
+        user.userRegistration(userCredentials)
+        .then((res)=>{
+           history.push('/login');
+            alert('data submit')
+        }).catch(error=>{
+            console.log(error)
+        })
+
+        //      props.resetForm()
+        //    props.setSubmitting(false)
+     }
 
     return (
         <Grid className="formStyle">
             <Paper className="register-container paperStyle">
                 <div className="register-form">
-                    <h3 className="header">
-                    <h3 className="header">
+                    <h2 className="header">
+                    <h2 className="header">
             <span className="fun1">F</span>
             <span className="fun2">u</span> 
             <span className="fun3">n</span> 
@@ -62,9 +83,9 @@ const Register = () => {
             <span className="fun3">t</span> 
             <span className="fun4">e</span> 
             <span className="fun5">s</span>
-          </h3>
-                        <span className="headerStyle"> <h5 >Please fill form to create an account !</h5></span>
-                    </h3>
+          </h2>
+                        <span className="headerStyle"> <h4 >Please fill form to create an account !</h4></span>
+                    </h2>
                     <Grid>
                        
                     </Grid>
@@ -85,11 +106,10 @@ const Register = () => {
                                             placeholder="Enter First Name"
                                             variant="outlined"
                                             fullWidth
-                                            required
                                             helperText={<ErrorMessage name='firstName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                         />
                                     </Grid>
-                                    <Grid item xs={16} sm={6}>
+                                    <Grid item xs={12} sm={6}>
                                         <Field
                                             className="register-form-inputs"
                                             as={TextField}
@@ -98,8 +118,8 @@ const Register = () => {
                                             placeholder="Enter Last Name"
                                             variant="outlined"
                                             fullWidth
-                                            required
                                             helperText={<ErrorMessage name='lastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                            
                                         />
                                     </Grid>
                                 </Grid>
@@ -113,7 +133,6 @@ const Register = () => {
                                         placeholder="Enter Email"
                                         variant="outlined"
                                         fullWidth
-                                        required
                                         helperText={<ErrorMessage name='email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                     />
                                 </Grid>
@@ -128,7 +147,6 @@ const Register = () => {
                                             variant="outlined"
                                             type="password"
                                             fullWidth
-                                            required
                                             helperText={<ErrorMessage name='password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                         />
                                     </Grid>
@@ -142,7 +160,7 @@ const Register = () => {
                                             variant="outlined"
                                             type="password"
                                             fullWidth
-                                            required
+                                            
                                             helperText={<ErrorMessage name='confirmPassword'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                         />
                                     </Grid>
@@ -150,20 +168,25 @@ const Register = () => {
                                 <Grid container spacing={1} className="register-form-element submit-button">
                                     <Button
                                         type="submit"
-                                        data-testid="submitButton"
+                                        // data-testid="submitButton"
                                         variant="contained"
                                         disabled={props.isSubmitting}
                                         className="register-form-button"
                                         fullWidth
-                                    >
-                                        {props.isSubmitting ? "Loading" : "Register"}
+                                        // onClick={handleLogin}
+                                        // >
+                                        //   Register
+                                          >
+                                    
+                                        {props.isSubmitting ? " ": "Register"}
                                     </Button>
                                 </Grid>
                             </Form>
                         )}
                     </Formik>
                     <Typography className="signInlink">
-                        <Link to="/login">Sign in instead</Link>
+                    {/* Sign in instead */}
+                        <Link to="/login">sign in</Link>
                     </Typography>
                 </div>
                 <div className="register-avatar">
@@ -171,6 +194,7 @@ const Register = () => {
                 </div>
             </Paper>
         </Grid >
+        
     );
 };
 
