@@ -7,7 +7,7 @@
  * @since        13/07/2021  
 -----------------------------------------------------------------------------------------------*/
 
-import Axios from 'axios'
+import Axios from 'axios';
 
 const BASE_URL = "http://localhost:4000";
 require('dotenv').config()
@@ -33,12 +33,10 @@ let token = localStorage.getItem('token')
      * @param {*} loginDetails 
      */
     userLogin = (loginDetails) => {
-     return Axios.post('/login', loginDetails)
-
-        // return Axios.post(BASE_URL+'/login', loginDetails)
-    //     headers:{
-    //         'token':token
-    //     }
-     
-    };
+     return Axios.post('/login', loginDetails, {
+        headers:{
+            'token':token
+              }
+           })
+    }
 }

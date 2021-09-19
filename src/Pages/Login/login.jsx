@@ -10,12 +10,13 @@ import React from 'react'
 import {Avatar, Button, Grid, Paper, TextField, Typography} from '@material-ui/core'
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {Link} from 'react-router-dom'
-import * as Yup from 'yup'
-import {Formik,  Form, Field, ErrorMessage} from 'formik'
-import './login.scss'
- import { useHistory } from 'react-router-dom'
-import { User } from '../../service/user'
-const user = new User()
+import * as Yup from 'yup';
+import {Formik,  Form, Field, ErrorMessage} from 'formik';
+import './login.scss';
+ import { useHistory } from 'react-router-dom';
+//  import {dashboard} from '../Dashboard/dashboard';
+import { User } from '../../service/user';
+const user = new User();
 
 /**
 * @description creating Login form
@@ -29,13 +30,13 @@ const Login =()=>{
         password:''   
     }
 
-    const handleRegister=()=>{
-      history.push('/register');
-  };
+  //   const handleRegister=()=>{
+  //     history.push('/register');
+  // };
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email("Enter a valid email id").required("Required"),
-        password: Yup.string().min(8,"Password must be of atleast 8 characters").required('Required')
+        email: Yup.string().email("Enter a valid email id").required("Please enter email "),
+        password: Yup.string().min(8,"Password must be of atleast 8 characters").required('Enter correct password')
     })
 
     const onSubmit=(values, props)=>{
@@ -47,7 +48,7 @@ const Login =()=>{
 
        user.userLogin(loginDetails).then((res) => {
         // setOpen(true);
-        localStorage.setItem('token', res.data.data)
+        localStorage.setItem('token', res.data.token)
         console.log(res.data.message)
         alert('You have been successfully logged in!!')
           history.push('./dashboard');
@@ -59,9 +60,9 @@ const Login =()=>{
             // props.setSubmitting(false)
     }
 
-    const handleLogin=()=>{
-      history.push('/login');
-  };
+  //   const handleLogin=()=>{
+  //     history.push('/login');
+  // };
 
 return (
   <div>
@@ -126,17 +127,13 @@ return (
                    disabled={props.isSubmitting}
                   className="register-form-button"
                   fullWidth>
-                  {props.isSubmitting ? "Loading" : "Login"}
+                  {props.isSubmitting ? " " : "Login"}
                 </Button>
                 </Form>
                  )}
                  </Formik>
                  <Typography align="center">
-                 Create Account
-                  <Link data-testid="link" to="/register" onClick={handleRegister}>Register</Link>
-
-
-               </Typography>
+                  <Link data-testid="link" to="/register"> Create Account</Link></Typography>
         </div>
       </Paper>
     </Grid>

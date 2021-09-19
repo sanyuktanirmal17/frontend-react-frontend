@@ -31,13 +31,13 @@ const Register = () => {
     }
     const validationSchema = Yup.object().shape({
         firstName: Yup.string().min(3, "First Name must have alteast three alphabets")
-        .matches(/^[a-zA-Z]{3,}$/, "First Name must contain alphabets only").required("Required"),
+        .matches(/^[a-zA-Z]{3,}$/, "First Name must contain alphabets only").required("Enter First Name"),
         lastName: Yup.string().min(3, "Last Name must have alteast three alphabets")
-        .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Required"),
+        .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Enter Last Name"),
         // email: Yup.string().email("Enter a valid email id").required("Required"),
-        email:Yup.string().email('please enter valid email').required("Required"),
-        password: Yup.string().min(8,"Password must be of atleast 8 characters").required("Required"),
-        confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Password doesn't matched").required("Required" )   
+        email:Yup.string().email('please enter valid email').required("Enter valid email"),
+        password: Yup.string().min(8,"Password must be of atleast 8 characters").required("Please enter password"),
+        confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Password doesn't matched").required("Enter correct password" )   
     })
 
     // const handleLogin=()=>{
