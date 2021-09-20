@@ -25,10 +25,17 @@ import {BrowserRouter as Router} from 'react-router-dom';
  import { User } from '../../service/user';
 import Dialog from '@material-ui/core/Dialog';
 import NoteIcon from '@material-ui/icons/Note';
-
+import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
+import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
+import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
+import LabelOutlinedIcon from "@material-ui/icons/LabelOutlined";
+import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+// import {CardList} from '';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import './dashboard.scss'
+
 const user = new User();
 const drawerWidth = 240;
 
@@ -142,7 +149,8 @@ export default function Dashboard() {
     <div className="root">
       <CssBaseline />
       <AppBar position="absolute" 
-      className={clsx(classes.appBar, open && classes.appBarShift)}>
+      className={clsx(classes.appBar,
+       open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
@@ -179,7 +187,7 @@ export default function Dashboard() {
         </div>
         <Divider />
         <List>
-        <ListItem button key="List" data-testid="list">
+        {/* <ListItem button key="List" data-testid="list">
             <ListItemIcon>{<ViewListIcon/>}</ListItemIcon>
             <ListItemText primary="List" />
           </ListItem>
@@ -194,7 +202,7 @@ export default function Dashboard() {
           <ListItem button key="Delete" data-testid="delete">
             <ListItemIcon>{<DeleteIcon/>}</ListItemIcon>
             <ListItemText primary="Delete" />
-          </ListItem>
+          </ListItem> */}
           {/* <List> */}
                     {primaryMenuItems.map((item) => (
                         <ListItem button key={item.name} onClick={item.action}>
@@ -202,7 +210,32 @@ export default function Dashboard() {
                             <ListItemText primary={item.name} />
                         </ListItem>
                     ))}
-                  {/* </List> */}
+                 
+            <ListItem button o>
+              <ListItemIcon>
+                <NotificationsNoneIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Reminders"} />
+            </ListItem>
+
+                  <ListItem button >
+              <ListItemIcon>
+                <EditOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Edit labels"} />
+            </ListItem>
+            <ListItem button >
+              <ListItemIcon>
+                <ArchiveOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Archive"} />
+            </ListItem>
+            <ListItem button >
+              <ListItemIcon>
+                <DeleteOutlineOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Trash"} />
+            </ListItem>
         </List>
         
       </Drawer>
@@ -216,9 +249,14 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container  className={classes.container}>
           <Grid container>
-            
+             
           </Grid>
         </Container>
+
+        {/* <main className={classes.content}>
+               <div className={classes.toolbar} />
+                <CardList notes={notes}></CardList>
+            </main> */}
       </main>
     </div>
     </Router>

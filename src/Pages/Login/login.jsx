@@ -14,7 +14,7 @@ import * as Yup from 'yup';
 import {Formik,  Form, Field, ErrorMessage} from 'formik';
 import './login.scss';
  import { useHistory } from 'react-router-dom';
-//  import {dashboard} from '../Dashboard/dashboard';
+//  import {toast} from 'react-toastify';
 import { User } from '../../service/user';
 const user = new User();
 
@@ -22,7 +22,7 @@ const user = new User();
 * @description creating Login form
 */
 
-
+// toast.configure()
 const Login =()=>{
  const history = useHistory();
  const initialValues = {
@@ -50,16 +50,21 @@ const Login =()=>{
         // setOpen(true);
         localStorage.setItem('token', res.data.token)
         console.log(res.data.message)
-        alert('You have been successfully logged in!!')
-          history.push('./dashboard');
+        // alert('You have been successfully logged in!!')
+        
+        history.push('./dashboard');
       }).catch(error => {
         console.log(error.message)
       })
+      
       // eslint-disable-next-line
     //         props.resetForm()
             // props.setSubmitting(false)
     }
-
+  
+  //   const notify =()=> {
+  //     toast.success(('You have been successfully logged in!!'), {autoClose:3000})  
+  //  }
   //   const handleLogin=()=>{
   //     history.push('/login');
   // };
@@ -128,6 +133,7 @@ return (
                   className="register-form-button"
                   fullWidth>
                   {props.isSubmitting ? " " : "Login"}
+                  {/* onlick = {notify} */}
                 </Button>
                 </Form>
                  )}
