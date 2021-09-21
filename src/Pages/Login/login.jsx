@@ -52,7 +52,7 @@ const Login =()=>{
         console.log(res.data.message)
         // alert('You have been successfully logged in!!')
         
-        history.push('./dashboard');
+        history.push('./fundooKeep/notes');
       }).catch(error => {
         console.log(error.message)
       })

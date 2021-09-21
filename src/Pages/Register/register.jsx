@@ -5,9 +5,9 @@
  * @author       Sanyukta
 ----------------------------------------------------------------------------------------------- */
 
-import { Grid, Avatar, Paper, Typography, TextField, Button } from '@material-ui/core'
+import { Grid,  Paper, Typography, TextField, Button } from '@material-ui/core'
 import React from 'react'
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+// import AddCircleIcon from '@material-ui/icons/AddCircle';
 import {Link} from 'react-router-dom'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
