@@ -1,3 +1,136 @@
+// .outer-box {
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .form-box {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     border: 1px solid #c5c5c5;
+//     border-radius: 8px;
+//     width: 700px;
+//     padding: 3%;
+//     font-family: 'Roboto', sans-serif;
+// }
+
+// .first-box {
+//     width: 60%;
+// }
+
+// .img-box {
+//     padding: 5%;
+//     text-align: center;
+// }
+
+// .fundoo-logo {
+//     font-size: 24px;
+//     font-weight: 600;
+// }
+
+// .form-heading {
+//     font-size: 24px;
+// }
+
+// .name-div {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     margin-bottom: 5%;
+// }
+
+// .username {
+//     width: 100%;
+// }
+
+// .current-mail,
+// .sign-in-instead {
+//     font-weight: 600;
+//     text-decoration: none;
+//     color: #3f51b5;
+//     padding: 2%;
+// }
+
+// .sign-in-instead:hover,
+// .current-mail:hover {
+//     color: #2f3d96;
+//     background-color: #ced8f852;
+// }
+
+// .link-div {
+//     padding: 5% 0;
+// }
+
+// .password-div {
+//     display: flex;
+//     flex-flow: row nowrap;
+//     justify-content: space-between;
+// }
+
+// .password-field,
+// .name-field {
+//     width: 48%;
+// }
+
+// .bottom-div {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     padding-top: 10%;
+// }
+
+// @media only screen and (max-width:1190px) {
+
+//     .form-box {
+//         width: 500px;
+//         padding: 5%;
+//     }
+
+//     .first-box {
+//         width: 100%;
+//     }
+
+//     .img-box {
+//         display: none;
+//     }
+// }
+
+// @media only screen and (max-width:600px) {
+//     .form-box {
+//         margin-top: 40%;
+//         border: none;
+//         width: 100%;
+//     }
+
+//     .name-field {
+//         width: 100%;
+//     }
+
+//     .password-div {
+//         display: flex;
+//         flex-flow: column;
+//     }
+
+//     .password-field,
+//     .name-field {
+//         margin: 10px 0;
+//         width: 100%;
+//     }
+
+//     .name-div {
+//         margin: 10px 0;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         margin-bottom: 5%;
+//     }
+// }
+
+
+
+
 @import '../../style/variable.scss';
 
 .formStyle {

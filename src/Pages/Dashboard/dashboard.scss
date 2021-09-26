@@ -1,27 +1,358 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+.root {
+  display: flex;
+}
+.lastContent {
+  display: flex;
+  align-items: flex-start;
+}
+.drawerButton {
+  margin: 8px 0 8px 0;
+}
+.drawerButton:hover {
+  background-color: rgb(236, 236, 236);
+  border-top-right-radius: 70px;
+  border-bottom-right-radius: 70px;
+}
+.topBar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
 }
 
-.header_dashboard {
-  background-color: #ffffff;
-  margin: auto -10px;
-  padding: 10px 20px;
-  box-shadow: 0 0 2px 0 rgb(110, 110, 110);
-  flex-direction: row;
+.leftOptions {
+  width: 70%;
+  /* border: black solid; */
+  display: flex;
+  justify-self: start;
+  justify-content: space-between;
+}
+.rightOptions {
+  width: 26%;
+  /* border: black solid; */
+  display: flex;
+  justify-self: end;
+  justify-content: space-between;
+}
+.headerIcon {
+  width: 45px;
+}
+.startOptions {
   display: flex;
   align-items: center;
 }
-
-.header h1 {
+.buttonContainer {
+  display: flex;
+}
+.headerTitle {
+  margin: 3%;
   color: #5f6368;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: x-large;
+  font-family: "Product Sans", Arial, sans-serif;
+}
+.search {
+  margin: 5px 5px 5px 5px;
+  height: 50px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(238, 238, 238);
+  border-radius: 8px;
+}
+.searchedButton {
+  display: none;
+}
+.searchIcon {
+  margin-left: 3%;
+}
+.searchInput {
+  margin-left: 2%;
+  width: 80%;
+}
+.appsContainer {
+  display: flex;
+}
+.MenuList{ 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ } 
+
+.displayNotes{
+  margin: 1%;
+  margin-left:200px;
+}
+
+@media only screen and (max-width: 900px) {
+  .search {
+    display: none;
+  }
+  .searchedButton {
+    display: initial;
+  }
+  .leftOptions {
+    width: auto;
+  }
+  .rightOptions {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .headerTitle {
+    margin: 1%;
+    font-size: 1.1em;
+  }
+  .headerIcon {
+    width: 30px;
+  }
+  .rightOptions {
+    justify-content: flex-end;
+  }
 }
 
 
 
+// vaishnavi code
+// ody {
+//   background-color: #fff;
+//   width: 100%;
+// }
+
+// .search-icon {
+//   display: none;
+// }
+
+// .dashbd-menu-btn {
+//   margin-right: 50px;
+// }
+
+// .dashbd-search {
+//   width: 70%;
+//   position: relative;
+//   border-radius: 5px;
+//   background-color: #e4e4e4b6;
+//   color: #252525;
+//   margin: 0 5%;
+//   box-shadow: 1px 1px 3px #979797;
+//   padding: 7px;
+// }
+
+// .dashbd-search:hover {
+//   background-color: #fff;
+// }
+
+// .dashbd-keep-icon {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .dashbd-search-icon {
+//   padding: 0 1%;
+//   height: 100%;
+//   position: absolute;
+//   bottom: 1px;
+//   cursor: none;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .dashbd-inputbase {
+//   padding: 1px;
+//   padding-left: 1px;
+//   width: 100%;
+//   color: #252525;
+// }
+
+// .dashbd-header-icons {
+//   display: flex;
+//   width: 50%;
+//   justify-content: flex-end;
+//   color: #575757;
+// }
+
+// .main-container {
+//   background-color: #fff;
+// }
+
+// .icons {
+//   margin: 0 15px;
+
+// }
+
+// .ref-icon:hover,
+// .lis-icon:hover,
+// .app-icon:hover,
+// .acc-icon:hover,
+// .set-icon:hover {
+
+//   color: #252525;
+// }
+
+// .google-icons {
+//   display: flex;
+//   flex-direction: row;
+//   margin-left: 20px;
+// }
+
+// .acc-icon,
+// .app-icon {
+//   margin: 0 10px;
+// }
+
+// .dashbd-list {
+//   top: 60px;
+// }
+
+// .list-items {
+//   display: flex;
+//   padding: 15px 20px;
+//   align-items: center;
+//   font-size: 16px;
+// }
+
+// .list-items:hover {
+//   background-color: #ebebeb !important;
+// }
+
+// .list-name {
+//   margin-left: 30px;
+// }
+
+// .content-container {
+//   width: 100%;
+//   padding: 0px;
+//   height: fit-content;
+//   padding-top: 90px;
+//   padding-left: 10%;
+// }
+
+// .profile-popper {
+//   padding: 40px 30px;
+//   text-align: center;
+//   box-shadow: 1px 1px 5px #888888;
+// }
+
+// .resp-search-bar {
+//   flex-direction: row;
+//   align-items: center;
+//   box-shadow: 1px 1px 5px #575757;
+//   border-radius: 5px;
+//   padding: 5px;
+//   width: 100%;
+// }
+
+// .resp-search-input {
+//   margin: 0;
+// }
+
+// @media only screen and (max-width:1250px) {
+//   .dashbd-search {
+//       position: relative;
+//       margin-right: 0;
+//       padding-right: 0;
+//   }
+
+//   .icons {
+//       margin: 0 5px;
+//   }
+
+//   .content-container {
+//       padding-left: 8%;
+//   }
+
+// }
+
+// @media only screen and (max-width:1000px) {
+//   .dashbd-search {
+//       position: relative;
+//       margin-right: 0;
+//       padding-right: 0;
+//   }
+
+//   .icons {
+//       margin: 0 5px;
+//   }
+// }
+
+// @media only screen and (max-width: 800px) {
+//   .dashbd-search-icon {
+//       display: none;
+//   }
+
+//   .search-icon {
+//       display: flex;
+//   }
+
+//   .search-bar {
+//       display: none;
+//   }
+
+//   .tool-bar {
+//       width: 100%;
+//   }
+
+//   .dashbd-header-icons {
+//       width: 100%;
+//   }
+
+//   .dashbd-search {
+//       background-color: #e4e4e400;
+//       box-shadow: none;
+//       width: 0;
+//       position: unset;
+//   }
+// }
+
+
+// @media only screen and (max-width:790px) {
+
+//   .acc-icon,
+//   .app-icon {
+//       margin: 0 2px;
+//   }
+
+//   .google-icons {
+//       margin-left: 0;
+//   }
+// }
+
+// @media only screen and (max-width:689px) {
+
+//   .dashbd-menu-btn {
+//       margin-right: 0px;
+//   }
+
+//   #list-icon {
+//       display: none;
+//   }
+// }
+
+// @media only screen and (max-width:400px) {
+
+//   /* .content-container {
+//       padding-left: 60px;
+//       padding-right: 10px;
+//   } */
+
+//   .icons {
+//       padding: 0 3px;
+//   }
+
+//   .dashbd-keep-icon {
+//       font-size: 14px;
+//   }
+
+//   .keep-icon {
+//       height: 30px;
+//   }
+
+
+// }
 
 
 
@@ -30,6 +361,41 @@
 
 
 
+// rekha code
+
+
+// * {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+
+// .header_dashboard {
+//   background-color: #ffffff;
+//   margin: auto -10px;
+//   padding: 10px 20px;
+//   box-shadow: 0 0 2px 0 rgb(110, 110, 110);
+//   flex-direction: row;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .header h1 {
+//   color: #5f6368;
+//   font-size: 1.5rem;
+//   font-weight: 600;
+// }
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+//vaishnavi code
 
 
 

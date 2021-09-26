@@ -1,23 +1,56 @@
 import './App.css';
-import Login from './Pages/Login/login';
-import Register from './Pages/Register/register'
-import{BrowserRouter, Route, Switch} from 'react-router-dom'
-import Dashboard from './Pages/Dashboard/dashboard';
+import Login  from './Pages/Login/login';
+import Register  from './Pages/Register/register'
+import{BrowserRouter,  Route, Switch} from 'react-router-dom'
+ import Dashboard from '../src/Pages/Dashboard/dashboard';
+//  import{Route, Switch} from 'react-router-dom';
 
+ // import Archive from "../src/Archive/archive";
+// import Trash from "../src/Trash/trash";
+// import ProtectedRouter from "../src/component/Protected-Router/protectedRouter";
+//  import AuthRouter from "../src/component/auth-Router/authRouter";
 require('dotenv').config()
 function App() {
   return (
-    // <div className="App">
+<BrowserRouter>
+ <div className="App">
     <>
-    <BrowserRouter>
+    
+    {/* <Router> */}
       <Switch>
         <Route path='/login' component={Login}/> 
         <Route path='/register' component={Register}/>
-      </Switch>
-      <Route path='/dashboard' component={Dashboard}/> 
-      </BrowserRouter>
-      </>
-    // </div>
+         <Route exact path='/' component={Login}/>
+        </Switch>
+        <Route path='/dashboard' component={Dashboard}/> 
+
+        {/* <AuthRouter  path='/login' component={Login}></AuthRouter> */}
+       
+      
+     
+      {/* <Route exact path="/" component={NewAccount}></Route>
+        <AuthRouter exact path="/sign-In" component={SignIn}></AuthRouter> */}
+      {/* <ProtectedRouter
+          path="/dashboard"
+          component={Dashboard}
+        ></ProtectedRouter>
+        <ProtectedRouter
+          exact
+          path="/archive"
+          component={Archive}
+        ></ProtectedRouter>
+        <ProtectedRouter
+          exact
+          path="/trash"
+          component={Trash}
+        ></ProtectedRouter> */}
+        
+      {/* </Router> */}
+    
+      
+      </> 
+    </div>
+    </BrowserRouter>
   )
 }
 

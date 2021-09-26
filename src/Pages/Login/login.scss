@@ -1,3 +1,116 @@
+// .signin-page {
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .signin-form {
+//     text-align: start;
+//     border: 1px solid #c5c5c5;
+//     border-radius: 8px;
+//     padding: 5%;
+//     font-family: 'Roboto', sans-serif;
+//     width: 400px;
+// }
+
+// .signin-note {
+//     font-size: 17px;
+// }
+
+// .signin-fundoo-logo {
+//     text-align: center;
+//     font-size: 24px;
+//     font-weight: 600;
+// }
+
+// .signin-head,
+// .signin-tag {
+//     margin: 0 0 3%;
+// }
+
+// .signin-tag {
+//     font-size: 16px;
+//     font-weight: 200;
+// }
+
+// .signin-email-field {
+//     width: 100%;
+// }
+
+// .signin-middle-box {
+//     text-align: start;
+//     margin-top: 2%;
+// }
+
+// .forgot-link,
+// .learn-more-link {
+//     color: #3f51b5;
+//     cursor: pointer;
+//     text-decoration: none;
+//     font-weight: 700;
+// }
+
+// .create-acc {
+//     font-weight: 600;
+//     text-decoration: none;
+//     color: #3f51b5;
+//     padding: 10px 0;
+// }
+
+// .create-acc:hover {
+//     color: #2f3d96;
+//     background-color: #ced8f852;
+// }
+
+
+// .signin-bottom-div {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     padding-top: 5%;
+// }
+
+// .signin-input-div {
+//     margin: 15px 0;
+// }
+
+
+// @media only screen and (max-width:600px) {
+//     .signin-form {
+//         padding: 10%;
+//         width: 100%;
+//         border: none;
+//     }
+
+//     .signin-head,
+//     .signin-tag {
+//         margin-bottom: 4%;
+//     }
+// }
+
+// @media only screen and (max-width:399px) {
+//     .signin-note {
+//         font-size: 14px;
+//     }
+
+// }
+
+// @media only screen and (max-width:250px) {
+
+//     .signin-bottom-div {
+//         display: flex;
+//         flex-direction: column;
+//         padding-top: 10%;
+//     }
+
+// }
+
+
+
+
+
+
 @import '../../style/variable.scss';
 
 .formStyle {
