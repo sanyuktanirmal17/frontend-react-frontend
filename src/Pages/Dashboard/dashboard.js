@@ -251,18 +251,6 @@ export default function Dashboard(props) {
                   <SearchIcon />
                 </div>
               </div>
-              {/* <InputBase 
-                className={classes.searchInput}
-                placeholder="Search…"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                onClick={searchHandleClick}
-                classes={{
-                  root: "inputRoot",
-                  input: "inputInput",
-                }}
-                inputProps={{ "aria-label": "search" }}
-              /> */}
             </div>
           </span>
           <span className="rightOptions">
@@ -619,7 +607,6 @@ export default function Dashboard(props) {
 
 
 
-// rekha code
 
 
 
