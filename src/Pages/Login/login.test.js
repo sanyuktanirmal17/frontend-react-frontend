@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Login from '../../src/Pages/Login/login';
+import Login from './login';
 
 it("should give correct title when login page rendered", () => {
     const { getByTestId } = render(<Login/>);

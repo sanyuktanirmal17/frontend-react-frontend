@@ -5,7 +5,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Register from '../../src/Pages/Register/register';
+import Register from './register';
 
 
 it('givenTestIdElement_WhenRenderedRegister_ShouldContainHeaderWithExpectedInputElements',() => {

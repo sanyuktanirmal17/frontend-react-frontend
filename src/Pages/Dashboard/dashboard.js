@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import {BrowserRouter as Router} from 'react-router-dom';
 import "./dashboard.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -26,9 +27,7 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircle';
 import { Switch } from "react-router-dom";
 import ProtectedRoutes from "../../ProtectedRoutes.js";
 import Notes from "../../component/CreateNote/notes";
-//import ArchiveNotes from "../archiveNotes/archiveNotes";
-// import TrashNotes from "../TrashNotes/trashNotes";
-// import SearchField from "../SearchNotes/searchNotes"
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -128,9 +127,9 @@ export default function Dashboard(props) {
   const [notes, setNotes] = React.useState(true);
   const [reminders, setReminders] = React.useState(false);
   const [editLabels, setEditLabels] = React.useState(false);
-  const [achive, setAchive] = React.useState(false);
-  const [trash, setTrash] = React.useState(false);
-  const [search, setSearch] = React.useState();
+  // const [achive, setAchive] = React.useState(false);
+  // const [trash, setTrash] = React.useState(false);
+  // const [search, setSearch] = React.useState();
  // const [searchTask, setSearchTask] = React.useState(false);
 
   const drawerOpen = () => {
@@ -178,8 +177,8 @@ export default function Dashboard(props) {
     setNotes(true);
     setReminders(false);
     setEditLabels(false);
-    setAchive(false);
-    setTrash(false);
+    // setAchive(false);
+    // setTrash(false);
     nextPath("../dashboard/notes");
   };
 
@@ -187,24 +186,24 @@ export default function Dashboard(props) {
     setNotes(false);
     setReminders(true);
     setEditLabels(false);
-    setAchive(false);
-    setTrash(false);
+    // setAchive(false);
+    // setTrash(false);
   };
 
   const editLabelSelect = () => {
     setNotes(false);
     setReminders(false);
     setEditLabels(true);
-    setAchive(false);
-    setTrash(false);
+    // setAchive(false);
+    // setTrash(false);
   };
 
   const achiveSelect = () => {
     setNotes(false);
     setReminders(false);
     setEditLabels(false);
-    setAchive(true);
-    setTrash(false);
+    // setAchive(true);
+    // setTrash(false);
     nextPath("../dashboard/archive");
   };
 
@@ -212,8 +211,8 @@ export default function Dashboard(props) {
     setNotes(false);
     setReminders(false);
     setEditLabels(false);
-    setAchive(false);
-    setTrash(true);
+    // setAchive(false);
+    // setTrash(true);
     nextPath("../dashboard/trash");
   };
 
@@ -227,6 +226,7 @@ export default function Dashboard(props) {
   };
 
   return (
+    <Router>
     <div className="root" className={classes.root} >
       <CssBaseline />
       <AppBar position="fixed" position="fixed" className={classes.appBar}>
@@ -241,7 +241,7 @@ export default function Dashboard(props) {
               <div>
                 <img className="headerIcon" src={icon} />
               </div>
-              <div className="headerTitle">FundooNotes
+              <div className="headerTitle" data-testid="title">FundooNotes
               </div>
             </div>
 
@@ -320,7 +320,7 @@ export default function Dashboard(props) {
                     open={Boolean(anchorE2)}
                     onClose={profileHandleClose}
                   >
-                    <div className="MenuList">
+                    <div className="MenuList"  data-testid="MenuList">
                     <MenuItem>
                     <AccountCircleOutlinedIcon color="primary" style={{ fontSize: 65 }}/>
                     </MenuItem>
@@ -415,12 +415,12 @@ export default function Dashboard(props) {
 
               <div className="drawerButton" onClick={achiveSelect}>
                 <ListItem
-                  button
-                  className="drawerListButton"
-                  className={classes.drawerButton}
-                  style={{
-                    backgroundColor: achive ? "#ffe0b2" : "transparent",
-                  }}
+                  // button
+                  // className="drawerListButton"
+                  // className={classes.drawerButton}
+                  // style={{
+                  //   backgroundColor: achive ? "#ffe0b2" : "transparent",
+                  // }}
                 >
                   <ListItemIcon>
                     <svg width="28" height="28" viewBox="0 0 24 24">
@@ -433,10 +433,10 @@ export default function Dashboard(props) {
 
               <div className="drawerButton" onClick={trashSelect}>
                 <ListItem
-                  button
-                  className="drawerListButton"
-                  className={classes.drawerButton}
-                  style={{ backgroundColor: trash ? "#ffe0b2" : "transparent" }}
+                //   button
+                //   className="drawerListButton"
+                //   className={classes.drawerButton}
+                //   style={{ backgroundColor: trash ? "#ffe0b2" : "transparent" }}
                 >
                   <ListItemIcon>
                     <svg width="28" height="28" viewBox="0 0 24 24">
@@ -455,7 +455,7 @@ export default function Dashboard(props) {
           <div className={classes.content}>
             <Switch>
               <ProtectedRoutes path="/dashboard/notes">
-                <Notes search={search} />
+                <Notes  />
               </ProtectedRoutes>
               {/* <ProtectedRoutes path="/dashboard/archive">
                 <ArchiveNotes />
@@ -471,6 +471,7 @@ export default function Dashboard(props) {
         </main>
       </div>
     </div>
+    </Router>
   );
 }
 
