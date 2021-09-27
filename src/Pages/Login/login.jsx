@@ -65,9 +65,7 @@ const Login =()=>{
             // props.setSubmitting(false)
     }
   
-  //   const notify =()=> {
-  //     toast.success(('You have been successfully logged in!!'), {autoClose:3000})  
-  //  }
+  
   //   const handleLogin=()=>{
   //     history.push('/login');
   // };
@@ -136,7 +134,8 @@ return (
                   className="register-form-button"
                   fullWidth>
                   {props.isSubmitting ? " " : "Login"}
-                  {/* onlick = {notify} */}
+                  
+                  
                 </Button>
                 <ToastContainer position='top-center'/>
                 </Form>

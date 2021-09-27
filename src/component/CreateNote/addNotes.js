@@ -74,10 +74,10 @@ export default function AddNote(props) {
     formData.append("title", title);
     console.log("title",title);
     formData.append("description", note);
-    const formval = {
-     title: title,
-     description : note
-  }
+  //   const formval = {
+  //    title: title,
+  //    description : note
+  // }
     if (edit) {
       //setClr(props.editColor);
       formData.append("color", clr);
