@@ -24,12 +24,12 @@ it("should give correct title when login page rendered", () => {
 
 it('givenTestIdElement_WhenRenderedLogin_ShouldContainHeaderWithExpectedInputElements',() => {
     const {getByTestId} = render(<Login/>);
-    // const form = getByTestId('form');
+    const form = getByTestId('form');
     const submit = getByTestId('submit');
     const emailInput = getByTestId('email');
     const password = getByTestId('password');
 
-    // expect(form).toBeInTheDocument();
+    expect(form).toBeInTheDocument();
     expect(submit).toBeInTheDocument();
     expect(emailInput).toBeInTheDocument();
     expect(password).toBeInTheDocument();
