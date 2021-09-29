@@ -38,10 +38,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "lightgray solid 1px",
     boxShadow: "none",
   },
-  topBar: {
-    backgroundColor: "#ffff",
-    display: "flex",
-    justifyContent: "space-between",
+  ifyContent: "space-between",
   },
   hide: {
     display: "none",
