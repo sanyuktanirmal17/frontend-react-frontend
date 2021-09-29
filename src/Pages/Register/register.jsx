@@ -15,6 +15,8 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import './register.scss';
 import { User } from '../../Services/user';
+import {toast, ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from 'react-router-dom'; 
 const user = new User()
 
@@ -60,9 +62,12 @@ const Register = () => {
         user.userRegistration(userCredentials)
         .then((res)=>{
            history.push('/login');
-            alert('data submit')
+           setTimeout(() => {
+            history.push("/dashboard");
+          }, 2000);
+          toast.success("Register Successfully");
         }).catch(error=>{
-            console.log(error)
+            toast.error(error);
         })
 
         //      props.resetForm()
@@ -197,7 +202,10 @@ const Register = () => {
                 <div className="register-avatar">
                 <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"></img>
                 </div>
+                <ToastContainer position='top-center'/>
+                
             </Paper>
+           
         </Grid >
      </Router>
     );

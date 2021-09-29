@@ -24,7 +24,6 @@ const user = new User();
 * @description creating Login form
 */
 
-// toast.configure()=
 const Login =()=>{
  const history = useHistory();
  const initialValues = {
@@ -41,7 +40,8 @@ const Login =()=>{
         password: Yup.string().min(8,"Password must be of atleast 8 characters").required('Enter correct password')
     })
 
-    const onSubmit=(values, props)=>{
+    const onSubmit=(values, props)=>
+    {
       console.log(values)
        const loginDetails = {
          email: values.email,
@@ -49,7 +49,6 @@ const Login =()=>{
        }
 
        user.userLogin(loginDetails).then((res) => {
-        // setOpen(true);
         localStorage.setItem('token', res.data.token)
         // toast.success(res.data.message)
         setTimeout(() => {
@@ -60,9 +59,7 @@ const Login =()=>{
         toast.error(error.message);
       })
       
-      // eslint-disable-next-line
-    //         props.resetForm()
-            // props.setSubmitting(false)
+     
     }
   
   
@@ -125,6 +122,9 @@ return (
                   }
                 />
                  <Link className="forgot-password-link" data-testid="submit" to="/forgotPassword">Forgot password?</Link>
+                {/* <div className="forgetPassword">
+              <Button color="primary" onClick={() => this.nextPath('../forgotPassword.jsx')}>Forgot password?</Button>
+            </div> */}
                 <Button
                   type="submit"
                   data-testid="button"
@@ -135,7 +135,7 @@ return (
                   fullWidth>
                   {props.isSubmitting ? " " : "Login"}
                   
-                  
+
                 </Button>
                 <ToastContainer position='top-center'/>
                 </Form>
