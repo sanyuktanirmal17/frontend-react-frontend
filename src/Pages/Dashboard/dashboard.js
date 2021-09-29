@@ -25,9 +25,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircle';
 import { Switch } from "react-router-dom";
-import ProtectedRoutes from "../../ProtectedRoutes.js";
-import Notes from "../../component/CreateNote/notes";
 
+import Notes from "../../component/CreateNote/notes";
+import ProtectedRoutes from "../../component/ProtectedRoutes/protectedRoute";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -217,11 +217,11 @@ export default function Dashboard(props) {
   };
 
   const logOut = () => {
-    localStorage.removeItem("fundooUserFName");
-    localStorage.removeItem("fundooUserFName");
-    localStorage.removeItem("fundooToken");
-    localStorage.removeItem("fundooUserUserId");
-    localStorage.removeItem("fundooUserEmail");
+    // localStorage.removeItem("fundooUserFName");
+    // localStorage.removeItem("fundooUserFName");
+    // localStorage.removeItem("fundooToken");
+    // localStorage.removeItem("fundooUserUserId");
+    localStorage.removeItem("token");
     nextPath("../login");
   };
 

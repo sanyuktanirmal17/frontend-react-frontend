@@ -42,7 +42,10 @@ static updateNotes =  (data) =>{
 
   }
 
-  
+  static ResetPass = (data)=>{
+  return  Axios.post('/resetPassword', data, header)
+  }
+
   LogOut = () => {
     return Axios.post(` user/logout`, null, header);
   };

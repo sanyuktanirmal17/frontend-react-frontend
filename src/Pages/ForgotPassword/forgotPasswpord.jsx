@@ -148,7 +148,7 @@ render() {
           
             {/* <div className="register-form-button"> */}
               <Button
-              type="submit"
+              // type="submit"
                 variant="contained"
                 className="register-form-button"
                 onClick={(e) => this.onSubmit(e)}
